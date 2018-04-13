@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import Home from './components/Home';
 
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
+import { IndexRoute } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
+
+import registerServiceWorker from './registerServiceWorker';
 
 const router = (
 	<Provider store = {store}>
@@ -17,7 +20,9 @@ const router = (
 	</Provider>
 )
 
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+	router, 
+	document.getElementById('root')
+);
 registerServiceWorker();
